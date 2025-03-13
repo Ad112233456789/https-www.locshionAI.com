@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدخال النصوص والأوقات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #FFFFFF;
+            background: #94C3FE;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            background: #143256;
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            padding: 10px;
+            margin: 1px;
+            font-size: 16px;
+        }
+        .input {
+            margin: 1px;
+            width: 50px;
+        }
+        button {
+            width: 100px;
+            height: 25px;
+            background: #050F71;
+            border: 1px solid #FF0000;
+            border-radius: 50px;
+            color: #FFFFFF;
+        }
+        .hr {
+            height: 1px;
+            margin: 6px auto;
+            background: #FF0000;
+        }
+        .box-help {
+            border: 1px solid #FF0000;
+            background: #143256;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <br/>
+    <div class="box-help">
+        <h1>الدعم الفني</h1>
+        <div class="hr"></div>
+
+        <!-- النصوص -->
+        <label for="text1">توجد صيانة:</label><br>
+        <textarea id="text1" placeholder="اكتب النص الأول..." rows="3" cols="30"></textarea><br><br>
+
+        <label for="text2">تنبيه:</label><br>
+        <textarea id="text2" placeholder="اكتب النص الثاني..." rows="3" cols="30"></textarea><br><br>
+    </div>
+
+    <div class="box-help">
+        <h1>وقت الصيانة</h1>
+
+        <div class="container">
+            <input type="text" id="days" class="input" placeholder="اليوم" max="1">
+            <input type="number" id="hours" min="0" max="24" placeholder="ساعة">
+            <input type="number" id="minutes" min="0" max="59" placeholder="دقيقة">
+            <input type="number" id="seconds" min="0" max="60" placeholder="ثانية">
+        </div>
+
+        <button onclick="startMaintenance()">ابدأ الصيانة</button>
+
+        <div class="hr"></div>
+        <b style="font-size: 9px;">We are here to help you</b>
+        <progress></progress>
+        <b style="font-size: 9px;">نحن هنا لمساعدتك</b>
+        <div class="hr"></div>
+    </div>
+
+
+<script>
+  function saveData() {
+    // جلب المدخلات من النموذج
+    const text1 = document.getElementById('text1').value;
+    const text2 = document.getElementById('text2').value;
+    const days = document.getElementById('days').value;
+    const hours = document.getElementById('hours').value;
+    const minutes = document.getElementById('minutes').value;
+    const seconds = document.getElementById('seconds').value;
+    
+    // تخزين البيانات في localStorage
+    localStorage.setItem('text1', text1);
+    localStorage.setItem('text2', text2);
+    localStorage.setItem('days', days);
+    localStorage.setItem('hours', hours);
+    localStorage.setItem('minutes', minutes);
+    localStorage.setItem('seconds', seconds);
+    
+    // الانتقال إلى الصفحة الثانية
+    window.location.href = "page2.html";
+  }
+</script>
+</body>
+</html>

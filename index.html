@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #4EC9BB;
+    background-size: cover;
+    font-family: sans-serif;
+  }
+  
+  .box-help {
+    position: absolute;
+    top: 72%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    width: 395px;
+    margin-top: 3%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+  }
+  
+  .help {
+    width: 116%;
+    text-align: center;
+    height: 117%;
+    border-radius: 5px;
+    background: #D2D2D2;
+    border: 1px solid #000000;
+    box-shadow: #6C6C6C 5px 5px 5px;
+  }
+  
+  .help-help {
+    width: 99%;
+    margin-left: 1px;
+    margin-top: 1px;
+    border-radius: 5px;
+    text-align: center;
+    background: #D2D2D2;
+    border: 1px solid #000000;
+    box-shadow: #6C6C6C 5px 5px 5px;
+  }
+  
+  .help-help-help {
+    width: 99%;
+    margin-left: 1px;
+    border-radius: 5px;
+    height: 363px;
+    text-align: center;
+    background: #D2D2D2;
+    border: 1px solid #000000;
+    box-shadow: #6C6C6C 5px 5px 5px;
+  }
+  
+  fieldset {
+    margin: 1px;
+    border: 1px solid #42445A;
+    border-radius: 5px;
+    box-shadow: #6A5E5E 5px 5px 5px;
+  }
+  
+  button {
+    width: 35%;
+    text-align: center;
+    height: 49px;
+    border-radius: 10px;
+    background: #97C2D8;
+    border: 1px solid #000000;
+    box-shadow: #6C6C6C 5px 5px 5px;
+  }
+  
+  .container {
+    background: #D2D2D2;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    height: 384px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin: 1px auto;
+    width: 99%;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 25px;
+    text-align: center;
+  }
+  
+  p {
+    color: #282727;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    font-size: 24px;
+    margin-top: 2px;
+  }
+  
+  .countdown div {
+    background: #3498db;
+    color: white;
+    padding: 2px;
+    border-radius: 8px;
+    min-width: 70px;
+  }
+  
+  .countdown span {
+    display: block;
+    font-size: 14px;
+  }
+  
+  .loading {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .loading span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    border-radius: 50%;
+    animation: bounce 1.5s infinite ease-in-out;
+  }
+  
+  iframe {
+    border-radius: 50%;
+    margin-left: 23%;
+    margin: 10%;
+  }
+  
+  .hr {
+    width: 250;
+    height: 1px;
+    box-shadow: #5A5959 5px 5px 5px;
+    background-color: #000000;
+  }
+</style>
+
+<body>
+  <div class="box-help">
+    <div class="help">
+      <fieldset>
+        <b>help_المساعدة</b>
+      </fieldset>
+      <div class="help-help-help">
+        <form action="login.html">
+          <h4>
+            (➡️
+            <br />
+            عزيزي المستخدم لايمكن إنشاء حساب جديد حاليًا يرجى تسجيل الدخول باستخدام الجيميل الخاص بك
+            <br />
+            ⬅️ )
+            <br />
+            <br />
+            <hr />
+            <h4>لذا قم بالضغط على زر تسجيل الدخول لتتمكن من الوصول الى موقعنا</h4>
+            <hr />
+            
+            الرجاء قراءة الشروط والأحكام
+            <br />
+            <a href="Shrawtd.html">قراءة الشروط والأحكام</a>
+            <br />
+            <button type="submit" id="loadin onSubmit">تسجيل الدخول</button>
+        </form>
+        </h4>
+      </div>
+      <hr class="hr">
+      <fieldset>
+        <b>⬇️</b> <b>عندما توجد صيانة للموقع ساتعرض هنا</b>
+      </fieldset>
+      <div class="container">
+        <h1>🚧 الموقع تحت الصيانة 🚧</h1>
+        <div class="box" id="textbox1">النص الأول سيظهر هنا...</div>
+        <hr />
+        <h1>🚨تنبيه🚨</h1>
+        <div class="box" id="textbox2">النص الثاني سيظهر هنا...</div>
+        <hr />
+        <!-- العداد التنازلي -->
+        <div class="countdown">
+          <div><span id="displayDays">00</span> يوم</div>
+          <div><span id="displayHours">00</span> ساعة</div>
+          <div><span id="displayMinutes">00</span> دقيقة</div>
+          <div><span id="displaySeconds">00</span> ثانية</div>
+        </div>
+        <!-- تأثير التحميل -->
+        <div class="loading">
+          
+          <span class="anmin span"></span>
+          <span class="admin span"></span>
+          <span class="border span"></span>
+          <hr />
+        </div>
+      </div>
+    </div>
+    <iframe src="" frameborder="0"></iframe>
+<script>
+  window.onload = function() {
+    // جلب النصوص المخزنة وعرضها
+    const text1 = localStorage.getItem('text1');
+    const text2 = localStorage.getItem('text2');
+    document.getElementById('textbox1').textContent = text1 ? text1 : "لا يوجد نص أول";
+    document.getElementById('textbox2').textContent = text2 ? text2 : "لا يوجد نص ثاني";
+    
+    // جلب الأوقات المخزنة
+    let days = localStorage.getItem('days') ? parseInt(localStorage.getItem('days')) : 0;
+    let hours = localStorage.getItem('hours') ? parseInt(localStorage.getItem('hours')) : 0;
+    let minutes = localStorage.getItem('minutes') ? parseInt(localStorage.getItem('minutes')) : 0;
+    let seconds = localStorage.getItem('seconds') ? parseInt(localStorage.getItem('seconds')) : 0;
+    
+    // عرض الأوقات في العد التنازلي
+    document.getElementById('displayDays').textContent = days < 0 ? "0" + days : days;
+    document.getElementById('displayHours').textContent = hours < 10 ? "0" + hours : hours;
+    document.getElementById('displayMinutes').textContent = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById('displaySeconds').textContent = seconds < 10 ? "0" + seconds : seconds;
+    
+    // بدأ العد التنازلي
+    startCountdown(days, hours, minutes, seconds);
+  };
+  
+  function startCountdown(days, hours, minutes, seconds) {
+    let countdownTimer = setInterval(function() {
+      // تحديث الأوقات كل ثانية
+      if (seconds > 0) {
+        seconds--;
+      } else if (minutes > 0) {
+        minutes--;
+        seconds = 59;
+      } else if (hours > 0) {
+        hours--;
+        minutes = 59;
+        seconds = 59;
+      } else if (days > 0) {
+        days--;
+        hours = 24;
+        minutes = 59;
+        seconds = 59;
+      } else {
+        clearInterval(countdownTimer);
+        alert("انتهت الصيانة!");
+      }
+      
+      // عرض الأوقات بعد التحديث
+      document.getElementById('displayDays').textContent = days < 10 ? "0" + days : days;
+      document.getElementById('displayHours').textContent = hours < 10 ? "0" + hours : hours;
+      document.getElementById('displayMinutes').textContent = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById('displaySeconds').textContent = seconds < 10 ? "0" + seconds : seconds;
+    }, 1000);
+  }
+</script>
+</body>
+</html>
