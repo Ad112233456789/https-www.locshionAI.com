@@ -1,262 +1,317 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html> 
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: #4EC9BB;
-    background-size: cover;
-    font-family: sans-serif;
-  }
-  
-  .box-help {
-    position: absolute;
-    top: 72%;
-    left: 43%;
-    transform: translate(-50%, -50%);
-    width: 395px;
-    margin-top: 3%;
-    padding: 80px 40px;
-    box-sizing: border-box;
-  }
-  
-  .help {
-    width: 116%;
-    text-align: center;
-    height: 117%;
-    border-radius: 5px;
-    background: #D2D2D2;
-    border: 1px solid #000000;
-    box-shadow: #6C6C6C 5px 5px 5px;
-  }
-  
-  .help-help {
-    width: 99%;
-    margin-left: 1px;
-    margin-top: 1px;
-    border-radius: 5px;
-    text-align: center;
-    background: #D2D2D2;
-    border: 1px solid #000000;
-    box-shadow: #6C6C6C 5px 5px 5px;
-  }
-  
-  .help-help-help {
-    width: 99%;
-    margin-left: 1px;
-    border-radius: 5px;
-    height: 363px;
-    text-align: center;
-    background: #D2D2D2;
-    border: 1px solid #000000;
-    box-shadow: #6C6C6C 5px 5px 5px;
-  }
-  
-  fieldset {
-    margin: 1px;
-    border: 1px solid #42445A;
-    border-radius: 5px;
-    box-shadow: #6A5E5E 5px 5px 5px;
-  }
-  
-  button {
-    width: 35%;
-    text-align: center;
-    height: 49px;
-    border-radius: 10px;
-    background: #97C2D8;
-    border: 1px solid #000000;
-    box-shadow: #6C6C6C 5px 5px 5px;
-  }
-  
-  .container {
-    background: #D2D2D2;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    height: 384px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    margin: 1px auto;
-    width: 99%;
-  }
-  
-  h1 {
-    color: #333;
-    font-size: 25px;
-    text-align: center;
-  }
-  
-  p {
-    color: #282727;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  .countdown {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    text-align: center;
-    font-size: 24px;
-    margin-top: 2px;
-  }
-  
-  .countdown div {
-    background: #3498db;
-    color: white;
-    padding: 2px;
-    border-radius: 8px;
-    min-width: 70px;
-  }
-  
-  .countdown span {
-    display: block;
-    font-size: 14px;
-  }
-  
-  .loading {
-    margin-top: 15px;
-    text-align: center;
-  }
-  
-  .loading span {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    border-radius: 50%;
-    animation: bounce 1.5s infinite ease-in-out;
-  }
-  
-  iframe {
-    border-radius: 50%;
-    margin-left: 23%;
-    margin: 10%;
-  }
-  
-  .hr {
-    width: 250;
-    height: 1px;
-    box-shadow: #5A5959 5px 5px 5px;
-    background-color: #000000;
-  }
-</style>
+  <meta name="viewport" content="width=device-width, initial-scale=0.60">
+    <meta charset="UTF-8">
+    <title>دعاء للمتوفى عادل الشمري</title>
+    <style>
+        /* استيراد الخطوط بشكل صحيح */
+        @import url('https://fonts.googleapis.com');
 
-<body>
-  <div class="box-help">
-    <div class="help">
-      <fieldset>
-        <b>help_المساعدة</b>
-      </fieldset>
-      <div class="help-help-help">
-        <form action="login.html">
-          <h4>
-            (➡️
-            <br />
-            عزيزي المستخدم لايمكن إنشاء حساب جديد حاليًا يرجى تسجيل الدخول باستخدام الجيميل الخاص بك
-            <br />
-            ⬅️ )
-            <br />
-            <br />
-            <hr />
-            <h4>لذا قم بالضغط على زر تسجيل الدخول لتتمكن من الوصول الى موقعنا</h4>
-            <hr />
-            
-            الرجاء قراءة الشروط والأحكام
-            <br />
-            <a href="Shrawtd.html">قراءة الشروط والأحكام</a>
-            <br />
-            <button type="submit" id="loadin onSubmit">تسجيل الدخول</button>
-        </form>
-        </h4>
-      </div>
-      <hr class="hr">
-      <fieldset>
-        <b>⬇️</b> <b>عندما توجد صيانة للموقع ساتعرض هنا</b>
-      </fieldset>
-      <div class="container">
-        <h1>🚧 الموقع تحت الصيانة 🚧</h1>
-        <div class="box" id="textbox1">النص الأول سيظهر هنا...</div>
-        <hr />
-        <h1>🚨تنبيه🚨</h1>
-        <div class="box" id="textbox2">النص الثاني سيظهر هنا...</div>
-        <hr />
-        <!-- العداد التنازلي -->
-        <div class="countdown">
-          <div><span id="displayDays">00</span> يوم</div>
-          <div><span id="displayHours">00</span> ساعة</div>
-          <div><span id="displayMinutes">00</span> دقيقة</div>
-          <div><span id="displaySeconds">00</span> ثانية</div>
-        </div>
-        <!-- تأثير التحميل -->
-        <div class="loading">
-          
-          <span class="anmin span"></span>
-          <span class="admin span"></span>
-          <span class="border span"></span>
-          <hr />
-        </div>
-      </div>
-    </div>
-    <iframe src="" frameborder="0"></iframe>
-<script>
-  window.onload = function() {
-    // جلب النصوص المخزنة وعرضها
-    const text1 = localStorage.getItem('text1');
-    const text2 = localStorage.getItem('text2');
-    document.getElementById('textbox1').textContent = text1 ? text1 : "لا يوجد نص أول";
-    document.getElementById('textbox2').textContent = text2 ? text2 : "لا يوجد نص ثاني";
-    
-    // جلب الأوقات المخزنة
-    let days = localStorage.getItem('days') ? parseInt(localStorage.getItem('days')) : 0;
-    let hours = localStorage.getItem('hours') ? parseInt(localStorage.getItem('hours')) : 0;
-    let minutes = localStorage.getItem('minutes') ? parseInt(localStorage.getItem('minutes')) : 0;
-    let seconds = localStorage.getItem('seconds') ? parseInt(localStorage.getItem('seconds')) : 0;
-    
-    // عرض الأوقات في العد التنازلي
-    document.getElementById('displayDays').textContent = days < 0 ? "0" + days : days;
-    document.getElementById('displayHours').textContent = hours < 10 ? "0" + hours : hours;
-    document.getElementById('displayMinutes').textContent = minutes < 10 ? "0" + minutes : minutes;
-    document.getElementById('displaySeconds').textContent = seconds < 10 ? "0" + seconds : seconds;
-    
-    // بدأ العد التنازلي
-    startCountdown(days, hours, minutes, seconds);
-  };
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #04070a; 
+            font-family: 'Amiri', serif;
+            overflow: hidden;
+        }
+
+        .bg-light {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #111d2b 0%, #04070a 100%);
+            z-index: -1;
+        }
+
+        .dua-container {
+            position: relative;
+            width: 500px;
+            max-width: 90%;
+            padding: 40px;
+            background: rgba(15, 20, 25, 0.85);
+            border: 1px solid #d4af37;
+            border-radius: 40px 0 40px 0;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15);
+            animation: slideIn 1.2s ease;
+            z-index: 1;
+        }
+
+        .ornament {
+            position: absolute;
+            color: #d4af37;
+            font-size: 25px;
+            opacity: 0.6;
+        }
+        .top-right { top: 15px; right: 15px; }
+        .bottom-left { bottom: 15px; left: 15px; }
+
+        .bismillah {
+            font-family: 'Aref Ruqaa', serif;
+            color: #d4af37;
+            font-size: 2.2em;
+            margin-bottom: 15px;
+        }
+
+        .intro-text {
+            color: #c5a059;
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-size: 2.2em;
+            color: #ffffff;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+        }
+
+        .dua-content {
+            color: #e0e0e0;
+            font-size: 1.3em;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .dua-content b { color: #d4af37; }
+
+        /* منطقة الصدقة */
+        .charity-box {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed rgba(212, 175, 55, 0.3);
+        }
+
+        .charity-text {
+            color: #c5a059;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        /* الزر الفخم */
+        .donate-btn {
+            background: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728);
+            color: #1a1a1a;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.2em;
+            font-family: 'Amiri', serif;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            color: #000;
+        }
+
+        /* لمعة الزر */
+        .donate-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255,255,255,0.2);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        #stars-canvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fullscreen-container{
+position:absolute;
+top:15px;
+left:15px;
+display:flex;
+align-items:center;
+gap:10px;
+}
+.fullscreen-container {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.fullscreen-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, .5);
+  background: rgba(0, 0, 0, .45);
+  color: gold;
+  font-size: 20px;
+  backdrop-filter: blur(1px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, .3);
+  transition: .3s;
+}
+
+.fullscreen-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px gold;
+}
+
+.fullscreen-label {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #FFD700;
   
-  function startCountdown(days, hours, minutes, seconds) {
-    let countdownTimer = setInterval(function() {
-      // تحديث الأوقات كل ثانية
-      if (seconds > 0) {
-        seconds--;
-      } else if (minutes > 0) {
-        minutes--;
-        seconds = 59;
-      } else if (hours > 0) {
-        hours--;
-        minutes = 59;
-        seconds = 59;
-      } else if (days > 0) {
-        days--;
-        hours = 24;
-        minutes = 59;
-        seconds = 59;
-      } else {
-        clearInterval(countdownTimer);
-        alert("انتهت الصيانة!");
-      }
-      
-      // عرض الأوقات بعد التحديث
-      document.getElementById('displayDays').textContent = days < 10 ? "0" + days : days;
-      document.getElementById('displayHours').textContent = hours < 10 ? "0" + hours : hours;
-      document.getElementById('displayMinutes').textContent = minutes < 10 ? "0" + minutes : minutes;
-      document.getElementById('displaySeconds').textContent = seconds < 10 ? "0" + seconds : seconds;
-    }, 1000);
-  }
+  background:
+    linear-gradient(90deg,
+      rgba(255, 215, 0, .15),
+      rgba(255, 255, 255, .05));
+  
+  border: 1px solid rgba(255, 215, 0, .3);
+  
+  backdrop-filter: blur(10px);
+  
+  box-shadow: 0 0 15px rgba(255, 215, 0, .2);
+  
+  transition: .4s;
+}
+    </style>
+</head>
+<body>
+
+    <div class="bg-light"></div>
+    <canvas id="stars-canvas"></canvas>
+
+    <div class="dua-container">
+        <div class="ornament top-right">✦</div>
+        <div class="ornament bottom-left">✦</div>
+        
+        <div class="bismillah">﷽</div>
+        <div class="intro-text">دعاء في شهر رمضان المبارك لـ</div>
+        <div class="name">عادل بندر الجنيدي الشمري</div>
+
+        <div class="dua-content">
+            اللهم يا حنان يا منان، ارحم <b>عادل بندر الجنيدي الشمري</b> رحمةً تسع السماوات والأرض. 
+            اللهم اجعل قبره في هذا الشهر الفضيل ضياءً ونوراً، وفسحةً وسروراً. 
+            اللهم أنزله منازل الصديقين والشهداء، واجعل الفردوس الأعلى هي داره ومستقره.
+        </div>
+
+        <div class="charity-box">
+            <div class="charity-text">
+                تصدق عن <b>عادل بندر الجنيدي الشمري</b> <br> كتب الله لنا ولكم الأجر
+            </div>
+            <button class="donate-btn" onclick="window.open('https://ehsan.sa/donationcampaign/details/1704873', '_blank')">تصدق الآن</button>
+        </div>
+    </div>
+<div class="fullscreen-container" onclick="toggleFullscreen()">
+  
+  <button class="fullscreen-btn" id="fsIcon">
+    ⛶
+  </button>
+  
+  <div class="fullscreen-label" id="fsLabel">
+    هل تريد ملء الشاشة؟
+  </div>
+  
+</div>
+  
+</div>
+    <script>
+        const canvas = document.getElementById('stars-canvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            stars = [];
+            for(let i=0; i<100; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    opacity: Math.random(),
+                    speed: 0.005 + Math.random() * 0.01
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(s => {
+                ctx.fillStyle = `rgba(212, 175, 55, ${s.opacity})`;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI*2);
+                ctx.fill();
+                s.opacity += s.speed;
+                if(s.opacity > 1 || s.opacity < 0) s.speed = -s.speed;
+            });
+            requestAnimationFrame(draw);
+        }
+
+        init();
+        draw();
+        window.onresize = init;
+    </script>
+<script>
+
+let isFullscreen = false;
+
+function toggleFullscreen(){
+
+const label = document.getElementById("fsLabel");
+const icon = document.getElementById("fsIcon");
+
+if(!isFullscreen){
+
+document.documentElement.requestFullscreen();
+
+label.textContent = "هل تريد تصغير ملء الشاشة؟";
+icon.textContent = "⛶";
+
+isFullscreen = true;
+
+}else{
+
+document.exitFullscreen();
+
+label.textContent = "هل تريد ملء الشاشة؟";
+icon.textContent = "⛶";
+
+isFullscreen = false;
+
+}
+
+}
+
 </script>
 </body>
 </html>
